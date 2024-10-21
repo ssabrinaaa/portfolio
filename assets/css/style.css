@@ -715,7 +715,7 @@ main {
 }
 
 .modal-content p {
-  color: var(--light-gray);
+  color: white;
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
