@@ -446,6 +446,25 @@ main {
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;               /* space between icon & text */
+  color: var(--light-gray); /* your link color */
+  font-size: var(--fs-7);   /* adjust as needed */
+}
+
+.social-link:hover {
+  color: var(--light-gray-70);
+}
+
+.social-username {
+  /* if you want to de-emphasize it a bit: */
+  color: var(--white-2);
+  font-weight: var(--fw-300);
+}
+
+
 
 
 
@@ -1366,6 +1385,16 @@ textarea.form-input::-webkit-resizer { display: none; }
     max-width: calc(100% - 64px);
     width: calc(100% - 64px);
   }
+  .contact-icon-link {
+    display: inline-flex;
+    color: var(--light-gray-70);      /* whatever color you want */
+    font-size: 18px;                  /* match your icon size */
+  }
+  
+  /* optionally, hover state */
+  .contact-icon-link:hover {
+    color: var(--light-gray);         /* same as your other hover rules */
+  }
 
 
 
@@ -1437,6 +1466,41 @@ textarea.form-input::-webkit-resizer { display: none; }
   .testimonials-text {
     line-clamp: 2;
     -webkit-line-clamp: 2;
+  }
+  .project-team {
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+  }
+  .project-item .preview-text {
+    display: -webkit-box;            
+    -webkit-box-orient: vertical;    
+    -webkit-line-clamp: 3;           /* WebKit/Blink */
+            line-clamp: 3;           /* Future spec */
+    overflow: hidden;
+  }
+  .project-item .testimonials-text p:not(.preview-text) {
+    display: none;
+  }
+  .project-item .project-team, .project-item .project-links {
+    display: none;
+  }
+  .modal-team {
+    margin: 1em 0;
+    color: var(--light-gray);
+  }
+  .modal-team strong {
+    color: var(--white-2);
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  
+  .modal-links {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+  }
+  .modal-links img {
+    display: inline-block;
   }
 
   /* testimonials modal */

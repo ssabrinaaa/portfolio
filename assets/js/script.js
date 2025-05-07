@@ -26,6 +26,8 @@ const overlay = document.querySelector("[data-overlay]");
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
+const modalTeam  = document.querySelector("[data-modal-team]");
+const modalLinks = document.querySelector("[data-modal-links]");
 
 // modal toggle function
 const testimonialsModalFunc = function () {
@@ -36,26 +38,31 @@ const testimonialsModalFunc = function () {
 // add click event to all modal items
 // Add click event to all project items to trigger the modal
 for (let i = 0; i < testimonialsItem.length; i++) {
-
   testimonialsItem[i].addEventListener("click", function () {
+    const card         = this;
+    const imgSrc       = card.querySelector(".project-img img").src;
+    const projectTitle = card.querySelector(".project-title").textContent;
+    const descHTML     = card.querySelector(".testimonials-text").innerHTML;
 
-    // Get the image source, title, and description from the clicked project item
-    const imgSrc = this.querySelector(".project-img img").src;
-    const projectTitle = this.querySelector(".project-title").textContent;
-    const projectDescription = this.querySelector(".testimonials-text p").textContent;
+    // optional team block
+    const teamHTML  = card.querySelector(".project-team")?.outerHTML ?? "";
 
-    // Set the content of the modal
-    modalImg.src = imgSrc;
-    modalImg.alt = projectTitle;
-    modalTitle.innerHTML = projectTitle;
-    modalText.innerHTML = projectDescription;
+    // optional links block
+    const linksHTML = card.querySelector(".project-links")?.outerHTML ?? "";
 
-    // Show the modal
+    // fill your modal
+    modalImg.src         = imgSrc;
+    modalImg.alt         = projectTitle;
+    modalTitle.textContent = projectTitle;
+
+    modalText.innerHTML  = descHTML;
+    modalTeam.innerHTML  = teamHTML;
+    modalLinks.innerHTML = linksHTML;
+
     testimonialsModalFunc();
-
   });
-
 }
+
 
 
 // add click event to modal close button
